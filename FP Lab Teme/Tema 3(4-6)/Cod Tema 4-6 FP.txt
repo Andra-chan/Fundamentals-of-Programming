@@ -1,0 +1,461 @@
+"""listele ce contin informatiile din pachetele de calatorie: zi/luna/an - inceput/sfarsit, destinatie, pret"""
+
+lista_data_inceput_zi = []
+lista_data_inceput_luna = []
+lista_data_inceput_an = []
+lista_data_sfarsit_zi = []
+lista_data_sfarsit_luna = []
+lista_data_sfarsit_an = []
+lista_destinatie = []
+lista_pret = []
+
+""" Pachet de calatorie = data de inceput si cea de sfarsit, destinatia, pretul"""
+
+print("""
+Un pachet de calatorie contine:
+Data de inceput si cea de sfarsit, destinatia si pretul.
+      """)
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+""" Meniul principal cu toate comenzile"""
+
+def meniu1():
+    print("""
+    1. Pentru a accesa meniul Adaugare, inserati adauga.
+    2. Pentru a accesa meniul Stergere, inserati sterge.
+    3. Pentru a accesa meniul Cautare, inserati cauta.
+    4. Pentru a accesa meniul Rapoarte, inserati raport.
+    5. Pentru a accesa meniul Filtrare, inserati filtru.
+    6. Pentru a accesa meniul Undo, inserati undo.
+    7. Pentru a iesi din program, inserati exit.
+    """)
+meniu1()
+
+"""Sub-meniuri pentru fiecare meniu"""
+
+def meniu_adaugare():
+    print("""*-
+    Meniul Adaugare contine:
+    1. Adauga pachet de calatorie.
+    2. Modifica pachet de calatorie.
+    """)
+
+def meniu_stergere():
+    print("""
+    Meniul Stergere contine:
+    1. Ștergerea tuturor pachetelor de călătorie disponibile pentru o
+    destinație dată.
+    2. Ștergerea tuturor pachetelor de călătorie care au o durată mai scurtă
+    decât un număr de zile dat.
+    3. Ștergerea tuturor pachetelor de călătorie care au prețul mai mare
+    decât o sumă dată.
+    """)
+
+def meniu_cautare():
+    print("""
+    Meniul Cautare contine:
+    1. Tipărirea pachetelor de călătorie care presupun un sejur într-un
+    interval dat.
+    2. Tipărirea pachetelor de călătorie cu o destinație dată și cu preț mai
+    mic decât o sumă dată.
+    3. Tipărirea pachetelor de călătorie cu o anumită dată de sfârșit.
+    """)
+    
+def meniu_rapoarte():
+    print("""
+    Meniul Rapoarte contine:
+    1. Tipărirea numărului de oferte pentru o destinație dată.
+    2. Tipărirea tuturor pachetelor disponibile într-o anumită perioadă citită
+    de la tastatură în ordinea crescătoare a prețului.
+    3. Tipărirea mediei de preț pentru o destinație dată.
+    """)
+
+def meniu_filtrare():
+    print("""
+    Meniul Filtrare contine:
+    1. Eliminarea ofertelor care au un preț mai mare decât cel dat și o
+    destinație diferită de cea citită de la tastatură.
+    2. Eliminarea ofertelor în care sejurul presupune zile dintr-o anumită
+    lună
+.
+    """)
+
+def meniu_undo():
+    print("""
+    Meniul Undo contine:
+    1. Refacerea ultimei operații (lista de oferte revine la ce exista înainte
+    de ultima operație care a modificat lista).
+    """)
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care formeaza listele cu pachete.
+Fiecare lista contine o informatie din pachet: zi/luna/data-inceput, zi/luna/data-sfarsit, destinatie, pret."""
+
+def lista_adauga_zi_inceput():
+
+    try:
+        elem_lista_zi = int(input("\nCe zi doresti sa adaugi la data de inceput? " ))   
+        lista_data_inceput_zi.append(elem_lista_zi)
+        print("\nAti adaugat la pachetul de calatorie ziua: ", elem_lista_zi)
+        print("Zilele de inceput introduse sunt: ", lista_data_inceput_zi)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_zi_inceput()
+    
+def lista_adauga_luna_inceput():
+
+    try:
+        elem_lista_luna = int(input("\nCe luna doresti sa adaugi la data de inceput? " ))   
+        lista_data_inceput_luna.append(elem_lista_luna)
+        print("\nAti adaugat la pachetul de calatorie luna: ", elem_lista_luna)
+        print("Lunile de inceput introduse sunt: ", lista_data_inceput_luna)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_luna_inceput()
+        
+def lista_adauga_an_inceput():
+
+    try:
+        elem_lista_an = int(input("\nCe an doresti sa adaugi la data de inceput? " ))   
+        lista_data_inceput_an.append(elem_lista_an)
+        print("\nAti adaugat la pachetul de calatorie anul: ", elem_lista_an)
+        print("Anii de inceput introdusi sunt: ", lista_data_inceput_an)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_an_inceput()
+        
+def lista_adauga_zi_sfarsit():
+
+    try:
+        elem_lista_zi = int(input("\nCe zi doresti sa adaugi la data de sfarsit? " ))   
+        lista_data_sfarsit_zi.append(elem_lista_zi)
+        print("\nAti adaugat la pachetul de calatorie zi: ", elem_lista_zi)
+        print("Zilele de sfarsit introdusi sunt: ", lista_data_sfarsit_zi)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_zi_sfarsit()
+    
+def lista_adauga_luna_sfarsit():
+
+    try:
+        elem_lista_luna = int(input("\nCe luna doresti sa adaugi la data de sfarsit? " ))   
+        lista_data_sfarsit_luna.append(elem_lista_luna)
+        print("\nAti adaugat la pachetul de calatorie luna: ", elem_lista_luna)
+        print("Lunile de sfarsit introduse sunt: ", lista_data_sfarsit_luna)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_luna_sfarsit()
+
+def lista_adauga_an_sfarsit():
+
+    try:
+        elem_lista_an = int(input("\nCe an doresti sa adaugi la data de sfarsit? " ))   
+        lista_data_sfarsit_an.append(elem_lista_an)
+        print("\nAti adaugat la pachetul de calatorie an: ", elem_lista_an)
+        print("Anii de sfarsit introdusi sunt: ", lista_data_sfarsit_an)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_adauga_an_sfarsit()
+        
+def lista_adauga_destinatie():
+
+    try:
+        elem_lista_destinatie = str(input("\nCe destinatie doresti sa adaugi? " ))   
+        lista_destinatie.append(elem_lista_destinatie)
+        print("\nAti adaugat la pachetul de calatorie destinatia: ", elem_lista_destinatie)
+        print("Destinatiile introduse sunt: ", lista_destinatie)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_destinatie()
+        
+def lista_adauga_pret():
+
+    try:
+        elem_lista_pret = int(input("\nCe preturi doresti sa adaugi? " ))   
+        lista_pret.append(elem_lista_pret)
+        print("\nAti adaugat la pachetul de calatorie pretul: ", elem_lista_pret, "ron")
+        print("Preturile introduse sunt: ", lista_pret)
+    except ValueError:
+        print("\nNu ati introdus un numar! Va rugam sa reincercati...")
+        lista_pret()
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care modifica listele initiale."""
+
+def modificare_zi_inceput():
+
+    which_zi_inceput = int(input("\nA cata zi de inceput vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_zi_inceput = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_inceput_zi)):
+        if which_zi_inceput == lista_data_inceput_zi[i]:
+            lista_data_inceput_zi[i] = modif_zi_inceput
+        break
+
+def modificare_luna_inceput():
+
+    which_luna_inceput = int(input("\nA cata luna de inceput vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_luna_inceput = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_inceput_luna)):
+        if which_luna_inceput == lista_data_inceput_luna[i]:
+            lista_data_inceput_luna[i] = modif_luna_inceput
+        break
+    
+def modificare_an_inceput():
+
+    which_an_inceput = int(input("\nAl catelea an de inceput vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_an_inceput = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_inceput_an)):
+        if which_an_inceput == lista_data_inceput_an[i]:
+            lista_data_inceput_an[i] = modif_an_inceput
+        break
+            
+def modificare_zi_sfarsit():
+
+    which_zi_sfarsit = int(input("\nA cata zi de sfarsit vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_zi_sfarsit = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_sfarsit_zi)):
+        if which_zi_sfarsit == lista_data_sfarsit_zi[i]:
+            lista_data_sfarsit_zi[i] = modif_zi_sfarsit
+        break
+
+def modificare_luna_sfarsit():
+
+    which_luna_sfarsit = int(input("\nA cata luna de sfarsit vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_luna_sfarsit = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_sfarsit_luna)):
+        if which_luna_sfarsit == lista_data_sfarsit_luna[i]:
+            lista_data_sfarsit_luna[i] = modif_luna_sfarsit
+        break
+
+def modificare_an_sfarsit():
+
+    which_an_sfarsit = int(input("\nAl catulea an de sfarsit vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_an_sfarsit = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_data_sfarsit_an)):
+        if which_an_sfarsit == lista_data_sfarsit_an[i]:
+            lista_data_sfarsit_an[i] = modif_an_sfarsit
+        break
+
+def modificare_destinatie():
+
+    which_destinatie = int(input("\nA cata destinatie vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_destinatie = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_destinatie)):
+        if which_destinatie == lista_destinatie[i]:
+            lista_destinatie[i] = modif_destinatie
+        break
+
+def modificare_pret():
+
+    which_pret = int(input("\nAl catelea pret vrei sa modifici?(incepe de la 0 pana la nr de elemente in lista-1) "))  
+    modif_pret = int(input("Cu ce vrei sa modifici data? "))
+    for i in range(0, len(lista_pret)):
+        if which_pret == lista_pret[i]:
+            lista_pret[i] = modif_pret
+        break
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care fac stergerile cerute"""
+
+'def stergere1():'
+    
+
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care fac cautarile cerute"""
+
+'def cautare1():'
+
+def cautare3():
+
+    try:
+        tiparire_zi_sfarsit = int(input("Alegeti ziua de sfarsit: "))
+        tiparire_luna_sfarsit = int(input("Alegeti luna de sfarsit: "))
+        tiparire_an_sfarsit = int(input("Alegeti anul de sfarsit: "))
+        for i in range(0, len(lista_data_sfarsit_zi)):
+            if tiparire_zi_sfarsit == lista_data_sfarsit_zi[i] and tiparire_luna_sfarsit == lista_data_sfarsit_luna[i] and tiparire_an_sfarsit == lista_data_sfarsit_an[i]:
+                print("""\nPachetele cu data de sfarsit selectata sunt: """
+                      "\n1. Ziua de inceput: ", lista_data_inceput_zi[0:i+1],
+                      "\n2. Luna de inceput: ", lista_data_inceput_luna[0:i+1],
+                      "\n3. Anul de inceput: ", lista_data_inceput_an[0:i+1],
+                      "\n4. Ziua de sfarsit: ", lista_data_sfarsit_zi[0:i+1],
+                      "\n5. Luna de sfarsit: ", lista_data_sfarsit_luna[0:i+1],
+                      "\n6. Anul de sfarsit: ", lista_data_sfarsit_an[0:i+1],
+                      "\n7. Destinatia: ", lista_destinatie[0:i+1],
+                      "\n8. Pretul: ", lista_pret[0:i+1])
+                       
+    except ValueError:
+        print("\nNu ati introdus un numar! Revenire la meniul Cautare 3...")
+        cautare3()
+                       
+
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care fac rapoartele cerute"""
+
+'def raport1():'
+
+
+
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functiile care fac filtrarile cerute"""
+
+'def filtru1():'
+
+
+
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Functia care realizeaza Undo"""
+
+'def undo_function():'
+
+
+
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Alegerea unuia dintre sub-meniuri"""
+
+def sub_meniu_adaugare():
+    adaugare = int(input("Ce sub-meniu din Alegere doriti sa accesati?(1 sau 2) "))
+    try:
+        if adaugare == 1:
+            lista_adauga_zi_inceput()
+            lista_adauga_luna_inceput()
+            lista_adauga_an_inceput()
+            lista_adauga_zi_sfarsit()
+            lista_adauga_luna_sfarsit()
+            lista_adauga_an_sfarsit()
+            lista_adauga_destinatie()
+            lista_adauga_pret()
+            meniu_aplicatii()
+        
+        elif adaugare == 2:
+            modificare = int(input("""
+                               1. Zi inceput
+                               2. Luna inceput
+                               3. An inceput
+                               4. Zi sfarsit
+                               5. Luna sfarsit
+                               6. An sfarsit
+                               7. Destinatie
+                               8. Pret
+Ce vrei sa schimbi? """))
+      
+            if modificare == 1:
+                modificare_zi_inceput()
+                print("\nNoua lista de zi inceput este: ", lista_data_inceput_zi)
+            elif modificare == 2:
+                modificare_luna_inceput()
+                print("\nNoua lista de luna inceput este: ", lista_data_inceput_luna)
+            elif modificare == 3:
+                modificare_an_inceput()
+                print("\nNoua lista de an inceput este: ", lista_data_inceput_an)
+            elif modificare == 4:
+                modificare_zi_sfarsit()
+                print("\nNoua lista de zi sfarsit este: ", lista_data_sfarsit_zi)
+            elif modificare == 5:
+                modificare_luna_sfarsit()
+                print("\nNoua lista de luna sfarsit este: ", lista_data_sfarsit_luna)
+            elif modificare == 6:
+                modificare_an_sfarsit()
+                print("\nNoua lista de an sfarsit este: ", lista_data_sfarsit_an)
+            elif modificare == 7:
+                modificare_destinatie()
+                print("\nNoua lista cu destinatii este: ", lista_destinatie)
+            elif modificare == 8:
+                modificare_pret()
+                print("\nNoua lista cu preturi este: ", lista_pret)
+    except ValueError:
+        print("Nu ati ales un meniu! Revenire la meniuri Adaugare...")
+        sub_meniu_adaugare()
+    meniu_aplicatii()
+        
+def sub_meniu_stergere():
+    stergere = input("Ce sub-meniu din Stergere doriti sa accesati? ")
+    
+def sub_meniu_cautare():
+    try:
+        cauta = input("Ce sub-meniu din Cautare doriti sa accesati?(momentan doar 3) ")
+        if cauta == 3:
+            cautare3()
+    except ValueError:
+        print("Nu ati introdus o optiune valida! Revenire la meniul Cautare...")
+        sub_meniu_cautare
+    meniu_aplicatii()
+    
+def sub_meniu_raport():
+    raport = input("Ce sub-meniu din Raport doriti sa accesati? ")
+    
+def sub_meniu_filtrare():
+    filtru = input("Ce sub-meniu din Filtrare doriti sa accesati? ")
+    
+def sub_meniu_undo():
+    try:
+        undo = int(input("Ce sub-meniu din Undo doriti sa accesati?(1) "))
+        if undo == 1:
+            verificare_undol = input("Sigur doriti sa realizati Undo?(da sau nu) ")
+            if verificare_undol == 'da':
+                print("Ati facut Undo! Revenire la meniul principal...")
+                meniu1()
+                meniu_aplicatii()
+                """de adaugat aici functia pt undo"""
+            elif verificare_undol == 'nu':
+                print("Nu ati facut Undo! Revenire la meniul principal...")
+                meniu1()
+                meniu_aplicatii()
+            else:
+                print("Nu ati introdus o optiune valida! Revenire la meniul Undo...")
+                sub_meniu_undo()
+    except ValueError:
+        print("Nu ati introdus o optiune valida! Revenire la meniul Undo...")
+        sub_meniu_undo()
+        
+"""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"""
+
+"""Alegerea unuia dintre meniuri"""    
+
+def meniu_aplicatii():
+ 
+    alegere_meniu1 = True
+    while alegere_meniu1:
+        alegere_meniu1 = input("Ce meniu doriti sa accesati? ")
+        if alegere_meniu1 == "adauga":
+            meniu_adaugare()
+            sub_meniu_adaugare()
+            break
+        elif alegere_meniu1 == "sterge":
+            meniu_stergere()
+            sub_meniu_stergere()
+            break      
+        elif alegere_meniu1 == "cauta":
+            meniu_cautare()
+            sub_meniu_cautare()
+            break
+        elif alegere_meniu1 == "raport":
+            meniu_raport()
+            sub_meniu_raport()
+            break
+        elif alegere_meniu1 == "filtru":
+            meniu_filtrare()
+            sub_meniu_filtrare()
+            break
+        elif alegere_meniu1 == "undo":
+            meniu_undo()
+            sub_meniu_undo()
+            break   
+        elif alegere_meniu1 == "exit":
+            print("Va multumim ca ati folosit serviciile noastre!")
+            alegere_meniu1 = None
+        else:
+            print("Nu ati ales niciun meniu! Revenire la meniul prinipal...")
+
+meniu_aplicatii()
